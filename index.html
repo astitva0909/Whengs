@@ -4415,15 +4415,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
               </svg>
             </button>
           </div>
-
-          
-
-
-          
-            
-          
         </nav>
-        <div id="mobileMenu" class="mobile-menu">
+
+<div id="mobileMenu" class="mobile-menu">
 
   <!-- HEADER -->
   <div class="menu-header">
@@ -4446,8 +4440,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     <a href="#" class="btn-outline">📞 Call</a>
     <a href="#" class="btn-solid">Order Now</a>
   </div>
+        
 
-</div>
+
+      </div>
         <main
           x-file-name="App"
           x-line-number="16"
@@ -10114,7 +10110,7 @@ function filterItems(category, btn) {
   });
 }
 </script>
-<script>
+<!-- <script>
   const menuBtn = document.getElementById("menuBtn");
   const closeBtn = document.getElementById("closeMenu");
   const menu = document.getElementById("mobileMenu");
@@ -10138,6 +10134,37 @@ function filterItems(category, btn) {
       document.body.style.overflow = "";
     });
   });
+</script> -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeMenu");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!menuBtn || !closeBtn || !menu) return;
+
+  // open
+  menuBtn.addEventListener("click", () => {
+    menu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  // close
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // auto close
+  document.querySelectorAll("#mobileMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+
+});
 </script>
   </body>
 </html>
